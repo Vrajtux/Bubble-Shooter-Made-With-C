@@ -19,7 +19,7 @@ void initSDL(void) {
       printf("Log: Successfully initialized SDL\n");
   }
 
-  App.window = SDL_CreateWindow("Polska", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, windowflags); // here we use SDL_CreateWindow to create a window | First passing the window title, then we tell the function to position the window as the os wants, then we define screen width and height from defs.h and then pass the window flags 
+  App.window = SDL_CreateWindow("Gnome Days", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, windowflags); // here we use SDL_CreateWindow to create a window | First passing the window title, then we tell the function to position the window as the os wants, then we define screen width and height from defs.h and then pass the window flags 
   if (!App.window){
     printf("Log: Failed to open window %s\n" , SDL_GetError());
     exit(1);
