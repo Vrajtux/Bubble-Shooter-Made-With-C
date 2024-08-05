@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 #include <stdio.h>
 #include <time.h>
 #include "headers/defs.h" // header for defined values like screen resolutions, size
@@ -7,15 +8,25 @@
 #include "headers/input.h"
 #include "headers/draw.h"
 #include "headers/initsdl.h"
+//#include "headers/sound.h"
 
 int main(){
+  /* memset(&App, 0, sizeof(App)); */
+  /* memset(&player, 0, sizeof(Entity)); */
+
   initSDL();
-  loadIcon();         
+  loadIcon();
+  Player.x = 10;
+  Player.y = 10;
+  Player.texture = loadMedia("img/sprites/images.jpg");
+  
   while(1){
     prepareScene();
     doInput();
+    blit(Player.texture, Player.x, Player.y);
     presentScene();
     SDL_Delay(15);
+    
   }
   return 0;
 }

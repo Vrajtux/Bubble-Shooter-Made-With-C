@@ -38,8 +38,18 @@ void initSDL(void) {
   //SDL_Surface* icon = IMG_Load("icon.png");
   //SDL_SetWindowIcon(App.window, icon);
 
+      IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);    // initializes sdl image and allows loading jpg and png files
+
+      Mix_Init(MIX_INIT_MP3);    // initializing sdl mixer
+
+      if(!IMG_Init){
+	printf("Log: Failed to initialize SDL Image %s\n", IMG_GetError());
+      }
+
+      if(!Mix_OpenAudio){
+	printf("Log: Failed to initialize Mixer %s\n", Mix_GetError());
+      }
   }
-  
 }
 
 void loadIcon(){
