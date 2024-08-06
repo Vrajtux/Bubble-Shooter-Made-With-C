@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
@@ -11,16 +10,10 @@ void doInput(){           // this function simply reads input: here we handle on
       
     case SDL_QUIT:  // here SDL_QUIT tell the window to close when the close button is clicked
       exit(0);
-      break;
-
-    /* case SDL_KEYUP: */
-    /*   keyarrowUp(); */
-    /*   printf("up key pressed"); */
-    /*   break; */
+      break; 
       
-    case SDL_KEYDOWN:
-      keyarrowDown();
-      printf("down key pressed\n");
+    case SDL_KEYDOWN:                // SDL_KEYDOWN checks for when a key is pressed down
+      keyarrowDown(&event.key);
       break;
 
     default:
@@ -30,16 +23,24 @@ void doInput(){           // this function simply reads input: here we handle on
   }
 }
 
-int keyarrowDown(){
-  Player.y++;
-  return 0;
-}                                                    /* x = right
-							-x = left
-							y = down
-							-y = up
-						     */
+int keyarrowDown(SDL_KeyboardEvent *key){   // the KeyboardEvent checks for keys pressed
+  if (key->keysym.sym == SDLK_w){           // the keycode is stored in keysym
+    Player.y--;
+  }
 
-/* auto keyarrowUp(){ */
-/*   Player.y--; */
-/*   return 0; */
-/* } */
+  if (key->keysym.sym == SDLK_a){
+   Player.x--;
+ }
+
+  if (key->keysym.sym == SDLK_s){
+   Player.y++;
+ }
+
+  if (key->keysym.sym == SDLK_d){
+   Player.x++;
+ }
+}
+    /* x = right  */
+    /* -x = left */
+    /* y = down */
+    /* -y = up */

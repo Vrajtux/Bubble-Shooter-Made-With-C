@@ -11,15 +11,13 @@
 //#include "headers/sound.h"
 
 int main(){
-  /* memset(&App, 0, sizeof(App)); */
-  /* memset(&player, 0, sizeof(Entity)); */
-
+  
   initSDL();
   loadIcon();
   Player.x = 10;
   Player.y = 10;
   Player.texture = loadMedia("img/sprites/images.jpg");
-  
+  // bgMusic();
   while(1){
     prepareScene();
     doInput();
